@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "668744451799",
+    "project_id": "imgplantas",
+    "storage_bucket": "imgplantas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668744451799:android:3890fa4358f58e584dd292",
+        "android_client_info": {
+          "package_name": "com.example.appretrofit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVVFqK_jauqnSarw_fWeW49Pj15r1e8i8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
