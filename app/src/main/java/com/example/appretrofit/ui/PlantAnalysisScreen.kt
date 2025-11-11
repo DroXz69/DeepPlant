@@ -3,8 +3,8 @@ package com.example.appretrofit.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.appretrofit.data.models.PlantAnalysisResult
-import com.example.appretrofit.repository.FirebaseRepository
-import com.example.appretrofit.repository.VisionRepository
+import com.example.appretrofit.data.repository.FirebaseRepository
+import com.example.appretrofit.data.repository.VisionRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

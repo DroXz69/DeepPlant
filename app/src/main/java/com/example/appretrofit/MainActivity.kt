@@ -3,8 +3,8 @@ package com.example.appretrofit
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.appretrofit.repository.FirebaseRepository
-import com.example.appretrofit.repository.VisionRepository
+import com.example.appretrofit.data.repository.FirebaseRepository
+import com.example.appretrofit.data.repository.VisionRepository
 import com.example.appretrofit.ui.PlantAnalysisScreen
 import com.example.appretrofit.viewmodel.PlantAnalysisViewModel
 import com.google.firebase.FirebaseApp
