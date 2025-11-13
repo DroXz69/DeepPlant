@@ -9,10 +9,17 @@ import okhttp3.RequestBody
 object UriUtils {
 
     fun uriToMultipart(resolver: ContentResolver, uri: Uri): MultipartBody.Part {
-        val bytes = resolver.openInputStream(uri)?.readBytes()
-            ?: ByteArray(0)
+        val inputStream = resolver.openInputStream(uri)
+            ?: throw IllegalArgumentException("No se pudo abrir la imagen")
 
-        val requestBody = RequestBody.create("image/*".toMediaTypeOrNull(), bytes)
+        val bytes = inputStream.readBytes()
+        inputStream.close()
+
+        if (bytes.isEmpty()) {
+            throw IllegalArgumentException("La imagen está vacía")
+        }
+
+        val requestBody = RequestBody.create("image/jpeg".toMediaTypeOrNull(), bytes)
 
         return MultipartBody.Part.createFormData(
             "image",

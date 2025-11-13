@@ -12,13 +12,14 @@ data class Etiqueta(
     val confianza: Double
 )
 
-
 // MODELO PARA GUARDAR EN FIREBASE
 data class PlantAnalysisResult(
     val id: String = "",
+    val deviceId: String = "",
     val name: String = "",
     val scientificName: String = "",
     val description: String = "",
     val confidence: Double = 0.0,
-    val imageUrl: String? = null
+    val imageUrl: String? = null,
+    val date: Long = System.currentTimeMillis()
 )
