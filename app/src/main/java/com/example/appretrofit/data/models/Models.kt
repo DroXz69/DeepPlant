@@ -4,21 +4,14 @@ package com.example.appretrofit.data.models
 
 import kotlinx.serialization.Serializable
 
+@Serializable
 data class PlantAnalysisResult(
-    val id: String,
-    val name: String,
-    val scientificName: String,
-    val description: String,
-    val confidence: Double,
-    val imageUrl: String? = null
+    val descripcion: String,
+    val confianza: Double
 )
-
 @Serializable
 data class ApiVisionResponse(
-    val id: String,
-    val name: String,
-    val scientificName: String,
-    val description: String,
-    val confidence: Double,
-    val imageUrl: String? = null
+    val mensaje: String,
+    val estado: String,
+    val etiquetas: List<PlantAnalysisResult>
 )

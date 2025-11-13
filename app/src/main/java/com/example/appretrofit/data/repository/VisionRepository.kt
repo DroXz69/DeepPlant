@@ -13,11 +13,11 @@ class VisionRepositoryImpl : VisionRepository {
     override suspend fun uploadImageForAnalysis(imageBytes: ByteArray): PlantAnalysisResult = withContext(Dispatchers.IO) {
         val dto = VisionApi.analyzeImageBytes(imageBytes)
         PlantAnalysisResult(
-            id = dto.id,
             estado = dto.estado,
-            scientificName = dto.scientificName,
-            description = dto.details,
-            confidence = dto.confidenceScore
+            confianza = dto.confianza,
+            mensaje = dto.mensaje,
+            etiquetas = dto.etiquetas,
+            descripcion = dto.descripcion
         )
     }
 }
