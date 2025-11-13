@@ -1,23 +1,10 @@
 package com.example.appretrofit.data.repository
 
-import com.example.appretrofit.data.models.PlantAnalysisResult
-import com.example.appretrofit.data.network.VisionApi
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.example.appretrofit.data.network.RetrofitClient
+import okhttp3.MultipartBody
 
-interface VisionRepository {
-    suspend fun uploadImageForAnalysis(imageBytes: ByteArray): PlantAnalysisResult
-}
+class VisionRepository {
 
-class VisionRepositoryImpl : VisionRepository {
-    override suspend fun uploadImageForAnalysis(imageBytes: ByteArray): PlantAnalysisResult = withContext(Dispatchers.IO) {
-        val dto = VisionApi.analyzeImageBytes(imageBytes)
-        PlantAnalysisResult(
-            estado = dto.estado,
-            confianza = dto.confianza,
-            mensaje = dto.mensaje,
-            etiquetas = dto.etiquetas,
-            descripcion = dto.descripcion
-        )
-    }
+    suspend fun analyze(image: MultipartBody.Part) =
+        RetrofitClient.api.analyzeImage(image)
 }

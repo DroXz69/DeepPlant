@@ -1,29 +1,23 @@
 package com.example.appretrofit.utils
-import android.content.Context
+
+import android.content.ContentResolver
 import android.net.Uri
-import java.io.ByteArrayOutputStream
-import java.io.InputStream
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 
 object UriUtils {
-    fun readBytesFromUri(context: Context, uri: Uri): ByteArray? {
-        return try {
-            val inputStream = context.contentResolver.openInputStream(uri) ?: return null
-            readBytes(inputStream)
-        } catch (e: Exception) {
-            e.printStackTrace()
-            null
-        }
-    }
 
-    private fun readBytes(input: InputStream): ByteArray {
-        val buffer = ByteArrayOutputStream()
-        val data = ByteArray(16384)
-        var nRead: Int
-        while (true) {
-            nRead = input.read(data, 0, data.size)
-            if (nRead == -1) break
-            buffer.write(data, 0, nRead)
-        }
-        return buffer.toByteArray()
+    fun uriToMultipart(resolver: ContentResolver, uri: Uri): MultipartBody.Part {
+        val bytes = resolver.openInputStream(uri)?.readBytes()
+            ?: ByteArray(0)
+
+        val requestBody = RequestBody.create("image/*".toMediaTypeOrNull(), bytes)
+
+        return MultipartBody.Part.createFormData(
+            "image",
+            "photo.jpg",
+            requestBody
+        )
     }
 }

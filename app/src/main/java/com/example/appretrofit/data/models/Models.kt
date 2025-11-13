@@ -1,17 +1,24 @@
-@file:OptIn(kotlinx.serialization.ExperimentalSerializationApi::class)
-
 package com.example.appretrofit.data.models
 
-import kotlinx.serialization.Serializable
+// RESPUESTA DE LA API
+data class PlantResponse(
+    val mensaje: String,
+    val estado: String,
+    val etiquetas: List<Etiqueta>
+)
 
-@Serializable
-data class PlantAnalysisResult(
+data class Etiqueta(
     val descripcion: String,
     val confianza: Double
 )
-@Serializable
-data class ApiVisionResponse(
-    val mensaje: String,
-    val estado: String,
-    val etiquetas: List<PlantAnalysisResult>
+
+
+// MODELO PARA GUARDAR EN FIREBASE
+data class PlantAnalysisResult(
+    val id: String = "",
+    val name: String = "",
+    val scientificName: String = "",
+    val description: String = "",
+    val confidence: Double = 0.0,
+    val imageUrl: String? = null
 )

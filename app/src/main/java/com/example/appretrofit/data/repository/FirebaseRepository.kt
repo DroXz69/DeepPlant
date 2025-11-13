@@ -43,6 +43,6 @@ class FirebaseRepositoryImpl : FirebaseRepository {
                 confidence = confidence,
                 imageUrl = imageUrl
             )
-        }.sortedByDescending { it.id } // orden simple (ajusta según necesites timestamp)
+        }.sortedByDescending { it.id }
     }
 }

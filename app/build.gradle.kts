@@ -35,13 +35,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    kotlinOptions {
-        jvmTarget = "11"
-    }
+    kotlinOptions { jvmTarget = "11" }
 
-    buildFeatures {
-        compose = true
-    }
+    buildFeatures { compose = true }
+
     kotlin {
         sourceSets.all {
             languageSettings.optIn("kotlinx.serialization.ExperimentalSerializationApi")
@@ -50,7 +47,10 @@ android {
 }
 
 dependencies {
+
+    // -------------------------
     // ANDROIDX / COMPOSE
+    // -------------------------
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -62,7 +62,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
     implementation("androidx.activity:activity-ktx:1.11.0")
 
+    // -------------------------
     // TESTING
+    // -------------------------
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -71,31 +73,43 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    // RETROFIT
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
+    // -------------------------
+    // RETROFIT (CORREGIDO)
+    // -------------------------
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
 
+    // -------------------------
     // KTOR CLIENT
+    // -------------------------
     implementation("io.ktor:ktor-client-core:3.3.2")
     implementation("io.ktor:ktor-client-okhttp:3.3.2")
     implementation("io.ktor:ktor-client-content-negotiation:3.3.2")
     implementation("io.ktor:ktor-serialization-kotlinx-json:3.3.2")
     implementation("io.ktor:ktor-client-logging:3.3.2")
 
+    // -------------------------
     // COROUTINES
+    // -------------------------
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
+    // -------------------------
     // KOTLIN SERIALIZATION
+    // -------------------------
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.9.0")
 
-    // FIREBASE
-    implementation(platform(libs.firebase.bom))
-    implementation(libs.firebase.firestore.ktx)
-    implementation(libs.firebase.analytics.ktx)
-    implementation(libs.firebase.crashlytics.buildtools)
-    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
+    // -------------------------
+    // COIL (PARA rememberAsyncImagePainter)
+    // -------------------------
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
+    // -------------------------
+    // FIREBASE (OPTIMIZADO)
+    // -------------------------
+    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
+
     implementation("com.google.firebase:firebase-firestore-ktx")
+    implementation("com.google.firebase:firebase-analytics-ktx")
     implementation("com.google.firebase:firebase-common-ktx")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.1")
-
 }
