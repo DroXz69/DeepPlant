@@ -29,6 +29,9 @@ android {
             )
         }
     }
+    buildFeatures {
+        compose = true
+    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -47,7 +50,6 @@ android {
 }
 
 dependencies {
-
     // -------------------------
     // ANDROIDX / COMPOSE
     // -------------------------
@@ -114,4 +116,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.8.1")
 
     implementation("androidx.compose.material:material-icons-extended")
+
+    implementation("androidx.core:core-splashscreen:1.2.0")
+
 }
