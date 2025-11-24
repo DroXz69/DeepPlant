@@ -6,7 +6,7 @@
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/purple</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/logo_splash_screen_anim</item>
-        <item name="windowSplashScreenAnimationDuration">8000</item>
+        <item name="windowSplashScreenAnimationDuration">2000</item>
         <item name="postSplashScreenTheme">@style/Theme.AppRetrofit</item>
         <item name="android:windowSplashScreenBrandingImage">@drawable/letra_splash_screen</item>
 
