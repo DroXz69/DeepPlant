@@ -22,12 +22,6 @@ class MainActivity : ComponentActivity() {
             elapsed < 1200
         }
 
-        // Animación de salida opcional (pequeño fade) después de la duración mínima
-        splash.setOnExitAnimationListener { provider ->
-            // Podemos simplemente retirar la vista sin animar extra porque el vector ya animó.
-            provider.remove()
-        }
-
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme {
