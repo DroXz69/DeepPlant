@@ -6,7 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.appretrofit.ui.PlantAnalysisScreen
-import com.example.appretrofit.ui.theme.AppTheme
+import com.example.appretrofit.ui.theme.DeepPlantTheme
 
 class MainActivity : ComponentActivity() {
     private var startTime: Long = 0
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
 
         super.onCreate(savedInstanceState)
         setContent {
-            AppTheme {
+            DeepPlantTheme(dynamicColor = true) {
                 PlantAnalysisScreen()
             }
         }
